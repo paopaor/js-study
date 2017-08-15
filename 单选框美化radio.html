@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>复选框美化</title>
+</head>
+<style>
+	body{
+	    margin: 0;
+	    font: 16px/20px "宋体";
+	}
+	.box{
+	    width: 500px;
+	    height: 100px;
+	    line-height: 100px;
+	    margin: 0 auto;
+	    border: 1px solid black;
+	    text-align: center;
+	}
+	.box label{
+	    position:relative;
+	    padding-left: 20px;
+	    cursor: pointer;
+	}
+	.box input{
+	    visibility: hidden;
+	}    
+	.box i{
+	    position: absolute;
+	    top: -2px;
+	    left: -2px;
+	    height: 19px;
+	    width: 19px;
+	    background: url('images/radiobutton.gif') no-repeat -14px -18px;
+	}
+	.box label:hover{
+	    color: red;
+	}
+	.box label:hover i{
+	    background-position: -14px -118px;
+	}
+	.box label.selected i{
+	    background-position: -14px -218px;
+	}
+</style>
+<body>
+	<div class="box" id="box">
+	    选择一款男神：
+	    <label for="xiu"><i></i>胡歌</label>
+	    <input id="xiu" type="radio" value="咻一咻">
+	    <label for="yao"><i></i>王凯</label>
+	    <input id="yao" type="radio" value="摇一摇">
+	    <label for="niu"><i></i>鲸鱼</label>
+	    <input id="niu" type="radio" value="扭一扭">
+	</div>
+	<script>
+	var oBox = document.getElementById('box');
+	var aLabel = oBox.getElementsByTagName('label');
+	for(var i = 0, leni = aLabel.length; i < leni; i++){
+	    aLabel[i].onclick = function(){
+	        for(var j = 0,lenj = aLabel.length; j < lenj; j++){
+	            aLabel[j].removeAttribute('class');
+	        }
+	        this.className = 'selected';
+	    }
+	}
+	</script>
+</body>
+</html>

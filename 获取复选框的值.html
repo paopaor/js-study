@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>chexkbox-check</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td align="left" style="width: 440px;" colspan="2">
+				年份口径:&nbsp;&nbsp;
+	            <input type="checkbox" name="yearkj" value="1"/>本年合计&nbsp;
+	            <input type="checkbox" name="yearkj" value="2" />上年合计&nbsp;&nbsp;
+	            <input type="checkbox" name="yearkj" value="3"/>历史累计&nbsp;&nbsp; 
+            </td>
+		</tr>
+	</table>
+	<script src="jquery-1.8.3.min.js"></script>
+	<script>
+		$(function(){
+           var obj=document.getElementsByName('yearkj'); 
+           var s='';
+           for(var i=0; i<obj.length; i++){
+	           if(obj[i].checked){
+	           	s+=obj[i].value+',';
+	           }
+	        }
+	        alert(s=='' ? '你还没有选择任何内容！': s);
+           });
+
+		/*$(function){
+			var chk_value =[];
+            $(‘input[name="yearkj"]:checked’).each(function(){
+            chk_value.push($(this).val());
+            });
+            alert(chk_value.length==0 ?’你还没有选择任何内容！’:chk_value);
+		}*/
+	</script>
+</body>
+</html>

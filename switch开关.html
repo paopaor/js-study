@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>switch</title>
+</head>
+<style>
+	/* 滑动开关 20170802 paopao */
+	.switch_box_ {
+	    width:55px;
+	    height:27px;
+	    padding:2px;
+	    border-radius: 30px;
+	    -webkit-border-radius:30px;
+	    -moz-border-radius:30px;
+	    background-color: #bcc3cb;
+	    position: relative;
+	    display:inline-block;
+	}
+	.switch_box_ .tex_yn{
+	    position: relative;
+	    display:inline-block;
+	    width:20px;
+	    height:20px;
+	    left:30px;
+	    color:#fff;
+	    margin-top: 3px;
+	}
+	.switch_box_ .btn_switch {
+	    width:23px;
+	    height:23px;
+	    -webkit-border-radius:23px;
+	    -moz-border-radius:23px;
+	    border-radius:23px;
+	    background-color: #fff;
+	    position: absolute;
+	    cursor: pointer;
+	    text-align:center;
+	    padding-top: 3px;
+	    display:inline-block;
+	    z-index: 100;
+	} 
+</style>
+<body>
+	<div class="switch_box_">
+	    <div isopen="false" class="btn_switch" isopen="false"></div>
+	    <div class="tex_yn">关</div>
+	</div>
+	<script src="jquery-1.8.3.min.js"></script>
+	<script>
+		$(function(){
+		       $('.btn_switch').on('click',function(){
+		           if ($(this).attr('isopen') == 'false') {
+		               $(this).attr('isopen','true').animate({left:'30px'});
+		               $(this).parent().css('background-color','#4bda66');
+		               $(this).next('.tex_yn').css('left','8px').html('开');
+		           } else {
+		               $(this).attr('isopen','false').animate({left:'3px'});
+		               $(this).parent().css('background-color','#bcc3cb');
+		               $(this).next('.tex_yn').css('left','30px').html('关');
+		           }
+		       });
+		   }); 
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>js处理各种类型的数字</title>
+</head>
+<script>
+	function get()
+	{
+	    var s = document.getElementsByTagName('input').value;
+	    console.log(s);
+	    var str = s.substring(0,s.indexOf(".") + 3);
+	    alert(str);
+	}
+</script>
+<body>
+	<input type="text" value="" onblur="get()">
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>单选框美化</title>
+</head>
+<style>
+	body{
+	    margin: 0;
+	    font: 16px/20px "宋体";
+	}
+	.box{
+	    width: 600px;
+	    height: 100px;
+	    line-height: 100px;
+	    margin: 0 auto;
+	    border: 1px solid black;
+	    text-align: center;
+	}
+	.box label{
+	    position:relative;
+	    padding-left: 20px;
+	}
+	.box input{
+	    visibility: hidden;
+	}    
+	.box i{
+	    position: absolute;
+	    top: -2px;
+	    left: -2px;
+	    height: 19px;
+	    width: 19px;
+	    background: url('images/checkbox.gif') no-repeat -14px -18px;
+	    cursor: pointer;
+	}
+	.box label:hover{
+	    color: red;
+	}
+	.box label:hover i{
+	    background-position: -14px -118px;
+	}
+	.box label.selected i{
+	    background-position: -14px -218px;
+	}
+</style>
+<body>
+	<div class="box" id="box">
+	    男神(可多选)：
+	    <label for="a"><i></i>kkw</label>
+	    <input id="a" type="radio" value="支付宝">
+	    <label for="t"><i></i>Jonny</label>
+	    <input id="t" type="radio" value="微信">
+	    <label for="b"><i></i>Timmy</label>
+	    <input id="b" type="radio" value="百度钱包">
+	</div>
+	<script>
+	var oBox = document.getElementById('box');
+	var aLabel = oBox.getElementsByTagName('label');
+	for(var i = 0, leni = aLabel.length; i < leni; i++){
+	    aLabel[i].onclick = function(){
+	        if(!this.className){
+	            this.className = 'selected';
+	        }else{
+	            this.removeAttribute('class');
+	        }
+	    }
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>新增表单控件总结</title>
+</head>
+<body>
+<!-- 常用表单控件：input、button、select、option、label、optgroup、textarea、fieldset、legend
+     五个新增：datalist、progress、meter、output、keygen -->
+<!--
+     button 　　　　　　定义一个按钮
+ 　　select 　　　　　　定义一个下拉列表
+ 　　option 　　　　　　定义下拉列表中的一个选项
+ 　　optgroup 　　　　  定义选项组，用于组合选项
+ 　　textarea 　　　　　定义多行的文本输入控件
+ 　　fieldset 　　　　　分组表单内的相关元素
+ 　　legend 　　　　　　定义fieldset元素的标题
+ 　　label 　　　　　　 定义input元素的标注 建立文字标签与表单控件的关联
+-->
+<!-- input  autofocus页面加载时自动获取输入框焦点 加上该属性 就为true  不写就为false-->
+<input type="text" autofocus>
+<br>
+<!-- optgroup -->
+<select name="test" id="select"> 
+   <optgroup label="num">
+       <option value="11" disabled>1</option>
+       <option value="22" selected>2</option>
+       <option value="33">3</option>
+       <option value="44" label="word">4</option>        
+   </optgroup>
+   <optgroup  label="word">
+       <option>a</option>
+       <option>b</option>
+       <option>c</option>
+       <option>d</option>        
+   </optgroup>
+   <optgroup  label="汉字" disabled>
+       <option value="一个">一</option>
+       <option value="二个">二</option>
+       <option value="三个">三</option>
+       <option value="四个">四</option>        
+   </optgroup>    
+</select>
+
+<!-- filedlist -->
+<fieldset>
+    <legend>健康信息</legend>
+    身高：<input type="text" />
+    体重：<input type="text" />
+</fieldset>
+
+<!-- label -->
+<h4>使用for方法</h4>
+<label for="male">Male</label>
+<input type="radio" name="sex1" id="male" />
+<br />
+<label for="female">Female</label>
+<input type="radio" name="sex1" id="female" />
+<h4>使用嵌套方法</h4>
+<label>Male<input type="radio" name="sex2" /></label>
+<br />
+<label>Female<input type="radio" name="sex2"  /></label>
+</body>
+</html>
+
+<!-- 新增元素 -->
+<!--
+ datalist元素规定输入域的选项列表，列表是通过datalist内的option元素创建的。如果需要把datalist绑定到输入域，需要把输入域的list属性引用datalist的id。option元素一定要设置value属性
+ -->
+<form action="#">
+    <input list="list" name="input">
+    <datalist id="list">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+    </datalist>
+</form>
+<br><br>
+<!-- keygenkeygen规定用于表单的密钥生成器字段，当提交表单时，私钥存储在本地，公钥发送到服务器 -->
+<!-- firefox: 1->usr_name=1&security=MIIBOjCBpDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1HUwmm%2B75QTnuDXC%0D%0AnUsL8cD8KkncFnA6TRaJttYss0Oi6dVzOPOtdK0O7wxD4%2BIhjSMZRD%2FddKFciZw0%0D%0AURyAimXxe%2FlDKmR3Nb1SzmqA7RJnns%2FA%2BduiYeeIIiMSL2ydUOvQvVFYMtaDkWra%0D%0AtpQfeWv1Hjz9hb7HlGzOUbtGrAECAwEAARYAMA0GCSqGSIb3DQEBBAUAA4GBAJ0I%0D%0ATWv7CdcNzqkaq5OpN6GHWtrlIpD5UAL%2FOiFDICb%2F8PFgV7FQk0MaGwj5XzQfEu4B%0D%0A6YlAbyz2l91I9%2FJW6Oerru5wL646OpvnTvD2U%2FzByU%2FHWp0BRNeDqntMAsGvzl6D%0D%0AoNsHTwLjDUGYVILge4syfcQVRpFRZiyVRaNlIJT9# -->
+<form action="#">
+    Username: <input type="text" name="usr_name" />
+    Encryption: <keygen name="security"  />
+    <input type="submit" />
+</form>
+<br><br>
+<!-- output元素用于显示计算的结果，这是一个语义化标签，定义不同类型的输出，比如脚本的输出 -->
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+    0<input type="range" id="a" value="50">100
+    +<input type="number" id="b" value="50">
+    =<output name="x" for="a b"></output>
+</form>
+<br><br>
+
+<!-- progress元素用来标示任务的进度或进程(常用于表示过程) -->
+<progress></progress>
+<br><br>
+<input id="btn" type="button" value="开始下载">
+下载进度：<progress id="test" value="0" max="100"></progress>
+<script>
+var oTimer;
+btn.onclick = function(){
+    if(oTimer){
+        return;
+    }
+    oTimer = setInterval(function(){
+        test.value++;
+        if(test.value >= test.max){
+            clearInterval(oTimer);
+        }
+    },50);     
+}
+</script>
+<br><br>
+
+<!-- meter元素用于显示剩余容量或剩余库存(常用于表示状态) -->
+<input id="btn2" type="button" value="增加库存">
+库存量：<meter id="test2" value="10" min="0" low="30" optimum="60" high="80" max="100" ></meter>
+<script>
+var oTimer2;
+btn2.onclick = function(){
+    if(oTimer2){
+        return;
+    }
+    oTimer2 = setInterval(function(){
+        test2.value++;
+        if(test2.value >= test2.max){
+            clearInterval(oTimer2);
+        }
+    },50);     
+};
+</script>
+
+<!-- 如果meter标签的value属性，取值为小数，如0.3，且没有max属性值时，则颜色块显示为宽高的30% -->
+<meter value="0.3"></meter>

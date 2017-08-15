@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<script src="jquery-1.8.3.min.js"></script>
+</head>
+<style>
+	.required{border-color: red;}
+	.error{color:red;}
+	.success{color:green;}
+</style>
+<body>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading text-center">注册（表单验证）</div>
+			<div class="panel-body">
+				<form class="form-horizontal">
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">用户名</label>
+				    <div class="col-sm-10">
+				       <input type="text" class="form-control required" id="username" placeholder="请输入用户名">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">邮箱</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control required" id="email" placeholder="请输入邮箱">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">个人资料</label>
+				    <div class="col-sm-10">
+				       <input type="text" class="form-control" id="personinfo" placeholder="请输入用户名">
+				    </div>
+				  </div>
+				  <div class="form-group text-center">
+				  	<a class="btn btn-success" id="send">提交</a>
+				  	<a class="btn btn-success">重置</a>
+				  </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('form :input.required').each(function(){
+			var $required = $("<strong class='high'>*</strong>");
+			$(this).parent().append($required);
+		});
+
+		$("form :input").blur(function(){
+			var $parent = $(this).parent();
+			$parent.find(".error").remove();
+			$parent.find(".success").remove();
+			//验证用户
+			if($(this).is('#username')){
+				if(this.value=="" || this.value.length < 6){
+					var errorMsg='请输入至少6位的用户名';
+					$parent.append('<span class="error">'+errorMsg+'</span>');
+				}
+				else{
+					var okMsg="输入正确";
+					$parent.append('<span class="success">'+okMsg+'</span>');
+				}
+			}
+
+			//验证邮箱
+			if($(this).is('#email')){
+				if(this.value=="" || (this.value!="" && !/.+@.+\.[a-zA-Z] {2,4}$/.test(this.value))){
+					var errorMsg="请输入合法的email地址";
+					$parent.append('<span class="error">'+errorMsg+'</span>');
+				}
+				else{
+					var okMsg="输入正确";
+					$parent.append('<span class="success">'+okMsg+'</span>');
+				}
+			}
+
+			$("#send").click(function(){
+				$("form .required:input").trigger('blur');
+				var numError=$("form .error").length;
+				if(numError){
+					//return false;
+					alert("信息有误，请重新输入");
+				}
+				alert("恭喜您，注册成功");
+			})
+		})
+	</script>
+</body>
+</html>

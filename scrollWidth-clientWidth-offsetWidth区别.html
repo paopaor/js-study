@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>scrollWidth-clientWidth-offsetWidth区别</title>
+</head>
+<body>
+	<textarea id="" width="80" rows="10" style="resize:none;margin-left: 100px;">kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</textarea>
+</body>
+<script>
+	window.onload=function(){
+		var a=document.getElementsByTagName("textarea");
+		console.log(a);
+		a.onclick=function(){
+			console.log(this.offsetLeft);
+		}
+		//var b=a.document.documentElement.clientWidth;
+		//console.log("scrollWidth 为："+b);
+	}
+</script>
+</html>
