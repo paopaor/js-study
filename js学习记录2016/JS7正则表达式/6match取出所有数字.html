@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>正则表达式找出数字</title>
+<script>
+    var str='12,sds45,hhh666,--hu8,fg90';
+    //var re=/\d/g;   //g globle  意思是取出转义后的所有数字 
+    // 这样得到的是1,2,4,5,6,6,6,8,9,0
+     
+    //var re=/\d\d\d/g;  // 666   只显示三位数的
+    
+    var re=/\d+/g;  // 12,45,666,8,90   取出了所有位数的数字
+
+    alert(str.match(re));
+</script>
+</head>
+</html>

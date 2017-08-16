@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>getbyclass之封装函数</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<script type="text/javascript">
+
+    function getByClass(oParent,sClass)
+    {
+        var aResult=[];
+        var aEle=oParent.getElementsByTagName('*');//*代表所有的标签
+
+        for(var i=0;i<aEle.length;i++)
+        {
+            if(aEle[i].className==sClass)
+            {
+                 aResult.push(aEle[i]);
+            }
+        }
+        return aResult;
+
+    }
+    window.onload=function()
+    {
+        var oUl=document.getElementById('ul1');
+        var oBox=getByClass(oUl,'box');
+        
+        for(var i=0;i<oBox.length;i++)
+        {
+            oBox[i].style.background='red';
+        }
+    }
+</script>
+<body>
+    <ul id="ul1">
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+</ul>
+</body>
+</html>

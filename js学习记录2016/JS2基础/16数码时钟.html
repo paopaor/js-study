@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>16数码时钟</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    body
+    {
+        background:url(16img/0.jpg);
+        color:purple;
+        font-size: 50px;
+    }
+    #div1
+    {
+        width:100%;
+        height:110px;
+        font-size: 60px;
+        font-family: Silent Reaction;
+        font-weight: bold;
+        letter-spacing: 5px;
+        background:lightgray;
+        opacity: 0.8;
+        margin-top:20px;
+    }
+    p
+    {
+        padding:25px;
+        margin:0px;
+    }
+    #div2
+    {
+        float:left;
+        position: relative;
+        left:200px;
+        margin-top: 50px;
+
+    }
+
+</style>
+<script>
+   function toDou(n)
+   {
+     if(n<10)
+     {
+        return'0'+n;
+     }
+     else
+     {
+        return''+n;
+     }
+   }
+    window.onload=function()
+    {
+        var aImg=document.getElementsByTagName('img');
+        function tick()
+        {
+           //var str='110912';
+        var oDate=new Date();
+        var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+        // alert(str);
+          for(var i=0;i<aImg.length;i++)
+          {
+              aImg[i].src='16img/'+str.charAt(i)+'.png';//str.charAt(i)相当于str[i]；charAt兼容性广
+          } 
+        }
+        setInterval(tick,1000);
+        tick();
+
+        
+    };
+</script>
+<body>
+<div id="div1" >
+     <p align="center">
+     Ronny's Clock!
+    </p>
+</div>
+<div id="div2">
+    <img src="16img/0.png">
+    <img src="16img/0.png">
+    :
+    <img src="16img/0.png">
+    <img src="16img/0.png">
+    :
+    <img src="16img/0.png">
+    <img src="16img/0.png">
+</div>
+    
+</body>
+</html>

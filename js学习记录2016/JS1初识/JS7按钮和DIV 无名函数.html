@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>pp.html</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    #fir{
+        position :relative;
+        width :400px;
+        height:400px;
+        background:pink;
+        padding:20px 20px;
+        margin:10px;
+        display: none;
+        
+      }
+  /*<a href="../我的百科/index.html" target="我的百科"><p><strong>我的百科</strong></p></a>
+  onclick="alert('我是大美女');"*/
+    #div2{
+      width:400px;
+      height:400px;
+      background: plum;
+      padding:20px 20px;
+      margin:10px;
+      display:none;
+    }
+</style>
+<script>
+ window.onload=function()
+ {
+    var oDiv=document.getElementById('fir');
+    var pDiv=document.getElementById('div2');
+    var oBtn=document.getElementById('btn1');
+    var aBtn=document.getElementById('btn2');
+    oBtn.onclick=function()
+    {
+        if(oDiv.style.display=='block')
+        {
+           oDiv.style.display='none';
+        }
+        else
+        {
+           oDiv.style.display='block';
+        } 
+    }
+    aBtn.onclick=function()
+    {
+        if(pDiv.style.display=='block')
+        {
+           pDiv.style.display='none';
+        }
+        else
+        {
+           pDiv.style.display='block';
+        } 
+    }
+  }
+  
+</script>
+<body>
+    <input id="btn1" type="button" value="演员" >
+    <input id="btn2" type="button" value="丑八怪" >
+  <div id="fir">简单点说话的方式简单点<br/>
+递进的情绪请省略<br/>
+你又不是个演员<br/>
+别设计那些情节<br/>
+没意见我只想看看你怎么圆<br/>
+你难过的太表面 像没天赋的演员<br/>
+观众一眼能看见<br/>
+该配合你演出的我演视而不见<br/>
+在逼一个最爱你的人即兴表演<br/>
+什么时候我们开始收起了底线<br/>
+顺应时代的改变看那些拙劣的表演<br/>
+可你曾经那么爱我干嘛演出细节<br/>
+</div>
+<div id="div2">
+  我该变成什么样子才能延缓厌倦<br/>
+原来当爱放下防备后的这些那些<br/>
+才是考验<br/>
+没意见你想怎样我都随便<br/>
+你演技也有限<br/>
+又不用说感言<br/>
+分开就平淡些<br/>
+</div>
+</body>
+</html>

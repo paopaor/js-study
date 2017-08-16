@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>转义</title>
+<script>
+    var str='asd 567 jyf';
+    var re=/\d/;   // \d意思是转义 找数字  等同于var re=/[0-9]/; 
+   
+    alert(str.search(re));    //4  即第一次出现数字的位置是4
+</script>
+</head>
+</html>

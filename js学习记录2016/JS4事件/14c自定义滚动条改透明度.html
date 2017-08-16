@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>滚动条</title>
+</head>
+<style>
+    #parent
+    {
+        width:700px;
+        height:20px;
+        background: #ccc;
+        margin:10px auto;
+        position: relative;
+    }
+    #div1
+    {
+        height:20px;
+        width:20px;
+        background: #f00;
+        position: absolute;
+        top:0px;
+        left:0px;
+    }
+    #div2
+    {
+        width:200px;
+        height:200px;
+        opacity: 0;
+        filter:alpha(opacity:0);
+        background: green;
+        margin:10px auto;
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oDiv=document.getElementById('div1');
+        var oDiv2=document.getElementById('div2');
+        var oParent=document.getElementById('parent');
+
+        var disX=0; 
+
+        oDiv.onmousedown=function(ev)
+        {
+            var oEvent=ev||event;
+
+            disX=oEvent.clientX-oDiv.offsetLeft;
+
+            document.onmousemove=function(ev)
+            {
+                var oEvent=ev||event;
+
+                var l=oEvent.clientX-disX;
+
+                if(l<0)
+                {
+                    l=0;
+                }
+                else if(l>oParent.offsetWidth-oDiv.offsetWidth)
+                {
+                    l=oParent.offsetWidth-oDiv.offsetWidth;
+                }
+      
+                oDiv.style.left=l+'px';
+
+                var scale=l/(oParent.offsetWidth-oDiv.offsetWidth);
+                document.title=scale;
+
+                oDiv2.style.opacity=scale;//FF
+                oDiv2.style.filter='alpha(opacity:'+100*scale+')';//IE
+            }
+
+            document.onmouseup=function(ev)
+            {
+                 document.onmousemove=null;
+                 document.onmouseup=null;
+            }
+
+            return false;
+        }
+    }
+</script>
+<body>
+    <div id="parent">
+        <div id="div1"></div>
+    </div>
+    <div id="div2"></div>
+</body>
+</html>

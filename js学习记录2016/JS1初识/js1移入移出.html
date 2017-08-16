@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<style>
+#js1{
+    width:200px;
+    height:200px;
+    background:green;
+} 
+</style> 
+<script>
+function toPink(){
+    var oDiv=document.getElementById('js1');
+    oDiv.style.width='400px'; 
+    oDiv.style.height='400px'; 
+    oDiv.style.background='pink';
+}
+toPink();
+function toGreen(){
+    var oDiv=document.getElementById('js1');
+    oDiv.style.width='200px';
+    oDiv.style.height='200px';
+    oDiv.style.background='green';
+}
+toGreen();
+</script>
+
+<div id="js1" onmouseover="toPink()" onmouseout="toGreen()"></div>
+    
+</body>
+</html>

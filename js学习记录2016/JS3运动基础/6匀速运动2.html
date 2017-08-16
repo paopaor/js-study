@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>匀速运动</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    #div1
+    {
+        width:100px;
+        height:100px;
+        background: red;
+        position: absolute;
+        left:800px;
+    }
+    #div2
+    {
+        width:1px;
+        height:300px;
+        background: black;
+        position: absolute;
+        left:200px;
+    }
+    #div3
+    {
+        width:1px;
+        height:300px;
+        background: black;
+        position: absolute;
+        left:600px;
+    }
+</style>
+<script>
+window.onload=function()
+{
+    var oBtn=document.getElementsByTagName('input');
+    for(var i=0;i<oBtn.length;i++)
+    {
+        oBtn[0].onclick=function()
+        {
+            startMove(200);
+        }
+        oBtn[1].onclick=function()
+        {
+            startMove(600);
+        }
+    }
+}
+    var timer=null;
+    function startMove(iTarget)
+    {
+        clearInterval(timer);
+        var oDiv =document.getElementById('div1');
+
+        timer=setInterval(function()
+        {
+            var speed=0;
+
+            if(iTarget>oDiv.offsetLeft)
+            {
+                speed=7;
+            }
+            else
+            {
+                speed=-7;
+            }
+            if(Math.abs(iTarget-oDiv.offsetLeft)<=7)
+            {
+                clearInterval(timer);
+                oDiv.style.left=iTarget+'px';
+            }
+            else
+            {
+                 oDiv.style.left=oDiv.offsetLeft+speed+'px';
+            }
+        },30);
+
+
+    }
+</script>
+<body>
+<input type="button" value="到200" >
+<input type="button" value="到600" >
+<div id="div1"></div>  
+<div id="div2"></div>
+<div id="div3"></div>
+</body>
+</html>

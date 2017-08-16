@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JS15</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="./JS15.css/" rel="stylesheet" type="text/css">
+</head>
+<script>
+    window.onload=function()
+    {
+        var arr=[
+        '一月一月January'
+        '二月二月Febjuay'
+        '三月三月March'
+        '四月四月April'
+        ];
+        
+       //var oTab=document.getElementById('tab');
+       var oLi=document.getElementsByTagName('li');
+       var oDiv=document.getElementsByTagName('main')[0];
+       for(i=0;i<oLi.length;i++)
+       {
+           oLi[i].index=i;
+           oLi[i].onmouseover=function()
+           {
+             for(i=0;i<oLi.lengh;i++)
+             {
+                oLi[i].className='';
+             }
+                this.className='active';
+                oDiv.innerHTML='<h2>'+(this.index+1)+'月活动+arr[this.index]+'</h2>
+         <p>一路风景，瑜你同行</p>';
+           }
+       }
+    }
+  }
+</script>
+<body>
+<div id="main">
+         <div class="active"><h2>1</h2><p>January</p></div>
+         <div class="twe"><h2>2</h2><p>Febuary</p></div>
+         <div class="twe"><h2>3</h2><p>March</p></div>
+         <div class="twe"><h2>4</h2><p>Aprial</p></div>
+         <div class="twe"><h2>5</h2><p>May</p></div>
+         <div class="twe"><h2>6</h2><p>June</p></div>
+         <div class="twe"><h2>7</h2><p>July</p></div>
+         <div class="twe"><h2>8</h2><p>Augest</p></div>
+         <div class="twe"><h2>9</h2><p>September</p></div>
+         <div class="twe"><h2>10</h2><p>October</p></div>
+         <div class="twe"><h2>11</h2><p>November</p></div>
+         <div class="twe"><h2>12</h2><p>December</p></div>
+         <div class="text">
+         <h2>1月活动</h2>
+         <p>一路风景，瑜你同行</p>
+         </div>
+</div>
+</body>
+</html>

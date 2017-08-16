@@ -1,0 +1,47 @@
+@import url(calendar.css);
+<style>
+    #main{
+       width:660px;
+       height:100px;
+       background:gray;
+       background-position:center;
+       display:block;
+       float:left;
+      }
+      .twe
+      {
+        height:200px;
+        width:200px;
+        margin:10px;
+        background:peachpuff;
+        float:left;
+        list-style-type:none;
+      }
+      .active
+      {
+        height:200px;
+        width:200px;
+        margin:10px;
+        background:peachpuff;
+        float:left;
+        list-style-type:none;
+      }
+      h2
+      {
+         text-align:center; 
+      }
+      p
+      {
+        text-align: center;
+      }
+      .class
+      {
+        height:200px;
+        width:200px;
+        display:block;
+        background: pink;
+        float:left;
+      }
+
+</style>
+  

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>DOM操作元素属性</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<script type="text/javascript">
+    window.onload=function()
+    {
+    var oBtn=document.getElementById('btn');
+    var oTxt=document.getElementById('txt');
+    oBtn.onclick=function()
+    {
+        //oTxt.value='Ronny';
+        //oTxt['value']="Ronny";
+        oTxt.setAttribute('value', 'paopao');
+    }
+}
+</script>
+<body>
+<input  id="btn" type="button" value="按钮">
+<input id="txt" type="text" >
+    
+</body>
+</html>

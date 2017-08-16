@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>11</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<script>
+    var json={a:2,b:3,c:4};
+    var arr=[2,3,4];
+    /*alert(json.a); 2；
+      alert(json['a']);2；
+      alert(arr[0]); 2；
+      json与array的区别是，json的下标是字符串；array的下标是数字*/
+
+    /*alert(arr.length);
+      alert(json.length); undefined*/
+
+    //循环
+    /*1 两函数试下功能相同
+    for(var i=0;i<arr.length;i++)
+    {
+        alert('第'+i+'个元素是:'+arr[i]);
+    }
+
+     for(var i in arr)
+    {
+        alert('第'+i+'个元素是:'+arr[i]);
+    }
+     */
+    for(var i in json)
+    {
+         alert('第'+i+'个元素是:'+json[i]);
+    }
+
+
+    
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>cookie expires</title>
+<script>
+    var oDate=new Date();
+    oDate.setDate(oDate.getDate()+6);
+
+    document.cookie='user=pp;expires='+oDate;  //cookie的过期时间为6天
+
+    alert(document.cookie);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

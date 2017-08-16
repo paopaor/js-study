@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM操作</title>
+<script>
+    window.onload=function()
+    {
+        var oTab=document.getElementById('tab1');
+
+        var oName=document.getElementById('name');
+        var oAge=document.getElementById('age');
+        var oBtn=document.getElementById('btn1');
+        var oLook=document.getElementById('look');
+
+        var ID=oTab.tBodies[0].rows.length+1;
+
+        oBtn.onclick=function()
+        {
+            var oTr=document.createElement('tr');
+
+            var oTd=document.createElement('td');
+            oTd.innerHTML=ID++;
+            oTr.appendChild(oTd);
+
+            var oTd=document.createElement('td');
+            oTd.innerHTML=oName.value;
+            oTr.appendChild(oTd);
+
+            var oTd=document.createElement('td');
+            oTd.innerHTML=oAge.value;
+            oTr.appendChild(oTd);
+
+
+            var oTd=document.createElement('td');
+            oTd.innerHTML=oLook.value;
+            oTr.appendChild(oTd);
+
+            var oTd=document.createElement('td');
+            oTd.innerHTML='<a href="#">delete</a>';
+            oTr.appendChild(oTd);
+
+            oTd.getElementsByTagName('a')[0].onclick=function()
+            {
+                oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+            }
+
+
+            oTab.tBodies[0].appendChild(oTr);
+        };
+            
+          
+
+    };
+</script>
+<body>
+    name:<input type="text" id="name">
+    age:<input type="text" id="age">
+    look:<input type="text" id="look">
+    <input type="button" value="add" id="btn1">
+    <table id="tab1" border="2" width="600" >
+        <thead>
+            <td>ID</td>
+            <td>name</td>
+            <td>age</td>
+            <td>look</td>
+            <td></td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>paopao</td>
+                <td>21</td>
+                <td>charming</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ronny</td>
+                <td>22</td>
+                <td>pretty</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Johnny</td>
+                <td>24</td>
+                <td>dashing</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Timmy</td>
+                <td>22</td>
+                <td>cute</td>
+                <td></td>
+            </tr>
+        </tbody>
+  </table>
+</body>
+</html>

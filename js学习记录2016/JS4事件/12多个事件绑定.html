@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>绑定多个事件</title>
+</head>
+<script>
+    window.onload=function()
+    {
+       var oBtn=document.getElementById('btn');
+
+
+       //FF Chrome  addEventListener（事件名 , 函数)
+       
+       oBtn.addEventListener('click',function()
+       {
+         alert('paopao');
+       },false);
+       oBtn.addEventListener('click',function()
+       {
+         alert('I love u');
+       },false);
+        
+
+       //IE6-8  IE7 attachEvent(事件，函数)
+       /*
+       oBtn.attachEvent('onclick',function()
+       {
+        alert('paopao');
+       });
+      oBtn.attachEvent('onclick',function()
+       {
+        alert('sunshine');
+       });
+*/
+    }
+   
+</script>
+<body>
+    <input id="btn" type="button" value="按钮">
+</body>
+</html>

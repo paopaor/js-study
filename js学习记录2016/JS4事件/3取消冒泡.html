@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>取消冒泡</title>
+</head>
+<style>
+    #div1
+    {
+        width:350px;
+        height:300px;
+        background: lightgray;
+        display:none;
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oBtn=document.getElementById('btn1');
+        var oDiv=document.getElementById('div1');
+
+        oBtn.onclick=function(ev)
+        {
+            var oEvent=ev||event;
+            oDiv.style.display='block';
+            oEvent.cancelBubble=true;
+            //alert('div被点击');
+        }
+        document.onclick=function()
+        {
+            //alert('document被点击');
+            oDiv.style.display='none';
+        }
+    }
+</script>
+<body>
+    <input type="button" id="btn1" value="显示">
+    <div id="div1"></div>
+</body>
+</html>

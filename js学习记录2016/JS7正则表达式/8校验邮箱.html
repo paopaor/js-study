@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>校验邮箱</title>
+<script>
+    window.onload=function()
+    {
+        var oBtn=document.getElementById('btn1');
+        var oTxt=document.getElementById('txt1');
+
+        oBtn.onclick=function()
+        {
+            var re=/^\w+@[0-9a-z]+\.+[a-z]+$/i;
+        
+
+            if(re.test(oTxt.value))
+            {
+                alert('邮箱正确');
+            }
+            else
+            {
+                alert('邮箱格式不正确，请重新输入');
+            }
+        }
+    }
+</script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input type="button" id="btn1" value="校验">
+</body>
+</html>

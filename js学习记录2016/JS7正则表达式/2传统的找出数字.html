@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>找出数字</title>
+<script>
+  var str='12,sds45,hhh666,--hu8,fg90';
+  var arr=[];
+  var tmp='';
+  for(var i=0;i<str.length;i++)
+  {
+    if(str.charAt(i)>=0 && str.charAt(i)<=9)
+    {
+        tmp+=str.charAt(i);
+        console.log(tmp);
+    }
+    else 
+    {    
+        if(tmp)
+        {
+            arr.push(tmp);
+            console.log(arr);
+            tmp='';
+        }
+    }
+  }
+  if(tmp)
+  {
+    arr.push(tmp);
+    tmp='';
+  }
+  console.log(arr);
+</script>
+</head>
+</html>

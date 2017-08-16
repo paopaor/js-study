@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>忽略大小写</title>
+<script>
+    window.onload=function()
+    {
+        var oTab=document.getElementById('tab1');
+
+        var oTxt=document.getElementById('name');
+        var oBtn=document.getElementById('btn1');
+
+        oBtn.onclick=function()
+        {
+            for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+            {
+
+                var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML;
+                var sTxt=oTxt.value;
+                if(sTab.toLowerCase()==sTxt.toLowerCase())
+                {
+                    oTab.tBodies[0].rows[i].style.background='red';
+                }
+                else
+                {
+                    oTab.tBodies[0].rows[i].style.background='';
+                }
+            } 
+        }
+    };
+</script>
+<body>
+    name:<input type="text" id="name">
+   
+    <input type="button" value="search" id="btn1">
+    <table id="tab1" border="2" width="600" >
+        <thead>
+            <td>ID</td>
+            <td>name</td>
+            <td>age</td>
+            <td>look</td>
+            <td>do</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>paopao</td>
+                <td>21</td>
+                <td>charming</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ronny</td>
+                <td>22</td>
+                <td>pretty</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Johnny</td>
+                <td>24</td>
+                <td>dashing</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Timmy</td>
+                <td>22</td>
+                <td>cute</td>
+                <td></td>
+            </tr>
+        </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>cute baby</title>
+<script src="move.js"></script>
+</head>
+<style>
+    *
+    {
+        margin:0px;
+        padding:0px;
+    }
+    li
+    {
+        list-style: none;
+    }
+    img
+    {
+        border:0px;
+    }
+    body
+    {
+        background: #931;
+    }
+    .play
+    {
+        width:400px;
+        height:430px;
+        margin:50px auto 0;
+        background: #999; 
+        font: 12px Arial; 
+
+    }
+    .big_pic
+    {
+        width:400px;
+        height:320px;
+        background: #222;
+        overflow: hidden;
+        border-bottom: 2px solid #fff;
+        position: relative;
+    }
+    .big_pic li
+    {
+        width:400px;
+        height:320px;
+        overflow:hidden;
+        background: url(images/loading.gif) no-repeat center ;
+        position: absolute;
+        top:0px;
+        left:0px;
+        z-index: 0;
+    }
+    .left_area
+    {
+        width:200px;
+        height:320px;
+        background: red;
+        filter:alpha(opacity:0);
+        opacity: 0;
+        position: absolute;
+        top:0px;
+        left:0px;
+        z-index: 3000;
+    }
+    .right_area
+    {
+        width:200px;
+        height:320px;
+        background: #0f0;
+        filter:alpha(opacity:0);
+        opacity: 0;
+        position: absolute;
+        top:0px;
+        right:0px;
+        z-index: 3000;
+        
+    }
+    .mark_left
+    {
+        width:60px;
+        height:60px;
+        background: url(images/btn.gif) no-repeat;
+        position: absolute;
+        top:130px;
+        left:10px;
+        filter:alpha(opacity:0);
+        opacity: 0;
+        z-index: 3001;
+        cursor: pointer;  
+    }
+     .mark_right
+    {
+        width:60px;
+        height:60px;
+        background: url(images/btn.gif) no-repeat 0 -60px ;/*往上拉一半的高度*/
+        position: absolute;
+        top:130px;
+        right:10px;
+        filter:alpha(opacity:0);
+        opacity: 0;
+        z-index: 3001;/*按钮的层级要高于遮罩*/ 
+        cursor: pointer; 
+    }
+    .text_bg
+    {
+        width:400px;
+        height:25px;
+        background: #222;
+        filter:alpha(opacity:60); 
+        opacity:0.6;
+        position: absolute;
+        top:295px;
+        left:0px;
+        z-index: 2999;
+    }
+    .text_l
+    {
+        color: #ccc;
+        position: absolute;
+        top:300px;
+        left:20px;
+        z-index: 3000;
+    }
+    .text_r
+    {
+        
+        color: #ccc;
+        position: absolute;
+        top:300px;
+        right:20px;
+        z-index: 3000;
+    }
+    .small_pic 
+    {
+        width:390px;
+        height:94px;
+        background: #666;
+        position: relative;
+        overflow: hidden;
+        top:8px;
+        left:10px;
+    }
+    .small_pic ul
+    {
+        height:94px;
+        position: absolute;
+        top:0px;
+        left:0px;
+    }
+    .small_pic li
+    {
+        width:120px;
+        height:94px;
+        padding-right: 10px;
+        float:left;
+        background: url(images/loading.gif) no-repeat center center; 
+        cursor: pointer; 
+        filter: alpha(opacity:60); 
+        opacity: 0.6; 
+    }
+    .small_pic img
+    {
+        width:120px;
+        height:94px;
+    }
+</style>
+<script>
+function getByClass(oParent,sClass)
+{
+    var aEle=oParent.getElementsByTagName('*');
+    var aResult=[];
+
+    for(var i=0;i<aEle.length;i++)
+    {
+        if(aEle[i].className==sClass)
+        {
+            aResult.push(aEle[i]);
+        }
+    }
+    return aResult;
+}
+window.onload=function()
+{
+    var oDiv=document.getElementById('playimages');
+    var oLeftArea=getByClass(oDiv,'left_area')[0];
+    var oRightArea=getByClass(oDiv,'right_area')[0];
+    var oBtnLeft=getByClass(oDiv,'mark_left')[0];
+    var oBtnRight=getByClass(oDiv,'mark_right')[0];
+
+    var oDivSmall=getByClass(oDiv,'small_pic')[0];
+    var oUlSmall=oDivSmall.getElementsByTagName('ul')[0];
+    var aLiSmall=oDivSmall.getElementsByTagName('li');
+
+    var oUlBig=getByClass(oDiv,'big_pic')[0];
+    var aLiBig=oUlBig.getElementsByTagName('li');
+
+    var nowZIndex=2;
+    var now=0;
+
+    oUlSmall.style.width=aLiSmall.length*aLiSmall[0].offsetWidth+'px';
+
+    //左右按钮
+    oBtnLeft.onmouseover=oLeftArea.onmouseover=function()
+    {
+        startMove(oBtnLeft,'opacity',100);
+    }
+     oBtnLeft.onmouseout=oLeftArea.onmouseout=function()
+    {
+        startMove(oBtnLeft,'opacity',0);
+    }
+
+    oBtnRight.onmouseover=oRightArea.onmouseover=function()
+    {
+        startMove(oBtnRight,'opacity',100);
+    }
+     oBtnRight.onmouseout=oRightArea.onmouseout=function()
+    {
+        startMove(oBtnRight,'opacity',0);
+    }
+    //大图切换
+    for(var i=0;i<aLiSmall.length;i++)
+    {
+        aLiSmall[i].index=i;
+        aLiSmall[i].onclick=function()
+        {
+           if(this.index==now)return;
+           //this.index==now 就不执行下面的代码
+           
+           now=this.index;//若不等则更新now的值
+           
+           tab();
+              
+        };
+
+        //small_pic移入移出透明度
+        aLiSmall[i].onmouseover=function()
+        {
+            startMove(this,'opacity',100);
+        }
+        aLiSmall[i].onmouseout=function()
+        {
+
+            //if判断 若大图显示的不是当前小图 则移出时改变透明度 
+            if(this.index!=now)
+            {
+               startMove(this,'opacity',60); 
+            }  
+        }
+    }
+
+    //点击哪个小图  改变其透明度
+    function tab()
+    {
+        //改变大图层级 显示大图
+           aLiBig[now].style.zIndex=nowZIndex++; 
+           for(var i=0;i<aLiSmall.length;i++)
+           {
+            startMove(aLiSmall[i],'opacity',60);
+           }
+           startMove(aLiSmall[now],'opacity',100);
+
+           //大图下翻
+           aLiBig[now].style.height=0;
+           startMove(aLiBig[now], 'height', 320);
+
+           if(now==0)
+           {
+            startMove(oUlSmall,'left',0);
+           }
+           else if(now==aLiSmall.length-1)
+           {
+             startMove(oUlSmall,'left',-(now-2)*aLiSmall[0].offsetWidth);
+           }
+           else
+           {
+            startMove(oUlSmall,'left',-(now-1)*aLiSmall[0].offsetWidth);
+           }    
+    }
+
+    oBtnLeft.onclick=function()
+    {
+        now--;
+        if(now==-1)
+        {
+            now=aLiSmall.length-1
+        }
+        tab();
+    }
+    oBtnRight.onclick=function()
+    {
+        now++;
+        if(now==aLiSmall.length)
+        {
+            now=0;
+        }
+        tab();
+    };
+    var timer=setInterval(oBtnRight.onclick,1000);
+    oDiv.onmouseover=function()
+    {
+        clearInterval(timer);
+    };
+    oDiv.onmouseout=function()
+    {
+        timer=setInterval(oBtnRight.onclick,2000);
+    }
+}
+</script>
+<body>
+    <div id="playimages" class="play">
+        <ul class="big_pic">
+
+            <a class="left_area" href="#"></a>
+            <a class="right_area" href="#"></a>
+
+            <div class="mark_left"></div>
+            <div class="mark_right"></div>
+
+            <div class="text_bg"></div>
+            <div class="text_l">图片加载</div>
+            <div class="text_r">计算速度</div>
+
+            <li style="z-index:1;"><img src="images/1.png"></li>
+            <li><img src="images/2.png"></li>
+            <li><img src="images/3.png"></li>
+            <li><img src="images/4.png"></li>
+            <li><img src="images/5.png"></li>
+            <li><img src="images/6.png"></li>
+        </ul>
+        <div class="small_pic">
+            <ul>
+                <li style="filter:100; opacity:1;"><img src="images/1.png"></li>
+                <li><img src="images/2.png"></li>
+                <li><img src="images/3.png"></li>
+                <li><img src="images/4.png"></li>
+                <li><img src="images/5.png"></li>
+                <li><img src="images/6.png"></li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+</html>

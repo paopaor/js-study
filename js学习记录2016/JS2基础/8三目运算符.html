@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>8</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<script>
+    function print(){
+    	var a=document.getElementById('input').value;
+    	console.log(a);
+    	/*if(a%2==0)
+    	{
+    	    alert('double');
+    	}else
+    	{
+    	    alert('singular');
+    	   
+    	}*/
+
+    	//onkeyup 输完抬起时触发
+    	//onkeydown 向下键入时触发
+    	//onblur 输入框失去焦点时触发
+    	//onfocus 输入框获取焦点时触发
+
+    	//a%2==0?alert('double'):alert('singular');
+    	a%2==0?alert('this is a double number'):alert('this is a singular number')
+    }
+</script>
+<body>
+    <input type="text" value="" id="input" onBlur="print()">
+</body>
+</html>

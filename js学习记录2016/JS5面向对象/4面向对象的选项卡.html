@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>面向对象的选项卡</title>
+
+<style>
+    #div1 input
+    {
+        background: white;
+    }
+    #div1 input.active
+    {
+        background: yellow;
+    }
+    #div1 div
+    {
+        width:200px;
+        height:200px;
+        background: #ccc;
+        display: none;
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oDiv1=document.getElementById('div1');
+        var oBtn=oDiv1.getElementsByTagName('input');
+        var oDiv=oDiv1.getElementsByTagName('div');
+
+        for(var i=0;i<oBtn.length;i++)
+        {
+            oBtn[i].index=i;
+            oBtn[i].onclick=function()
+            {
+                for(var i=0;i<oBtn.length;i++)
+                {
+                    oBtn[i].className=''
+                    oDiv[i].style.display='none';
+                }
+                this.className='active';
+                oDiv[this.index].style.display='block';
+                
+            }
+        }
+    }
+</script>
+</head>
+<body>
+    <div id="div1">
+        <input class="active" type="button" value="first">
+        <input type="button" value="second">
+        <input type="button" value="third">
+        <div style="display:block">111</div>
+        <div>222</div>
+        <div>333</div>
+    </div>
+</body>
+</html>

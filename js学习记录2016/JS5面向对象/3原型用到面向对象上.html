@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>原型用到面向对象</title>
+<script>
+    function CreatePerson(name,sex)  //构造函数 构造函数   加属性 属性不相同
+    {
+        this.name=name;
+        this.sex=sex;
+    }
+
+
+    //命名规范 类名首字母大写CreatePerson
+    //
+    CreatePerson.prototype.showName=function()  //原型 加方法 方法都是相同的
+    {
+        alert('my name is ：'+this.name);
+    }
+    CreatePerson.prototype.showSex=function()  
+    {
+        alert('my sex is ：'+this.sex);
+    }
+
+    var obj1=new CreatePerson('paopao','female');
+    var obj2=new CreatePerson('ronny','male');
+     
+    /*obj1.showName();
+    obj1.showSex();
+
+    obj2.showName();
+    obj2.showSex();*/
+
+    alert(obj1.showName==obj2.showName);
+</script>
+</head>
+
+<body>
+    
+</body>
+</html>

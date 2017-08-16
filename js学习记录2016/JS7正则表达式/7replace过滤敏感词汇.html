@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>过滤敏感词语</title>
+<script>
+    window.onload=function()
+    {
+        var oBtn=document.getElementById('btn');
+        var oTxt1=document.getElementById('txt1');
+        var oTxt2=document.getElementById('txt2');
+
+        oBtn.onclick=function()
+        {
+            /*
+            自己写
+            var str=oTxt1.value;
+            var re=/b|a/g;
+            oTxt2.value=str.replace(re,'*');*/
+
+            var re=/哈哈|嘿嘿|嘻嘻/g;
+            oTxt2.value=oTxt1.value.replace(re,'***');
+        }
+    }
+</script>
+</head>
+<body>
+    <ul>
+        <li>3</li>
+        <li>哈哈</li>
+        <li>嘻嘻</li>
+        <li>嘿嘿</li>
+        <li>今天好开心，哈哈笑了出来，对面的小鸟也在嘻嘻的笑着</li>
+    </ul>
+    <textarea  id="txt1" cols="40" rows="10" value=""> 
+    今天好开心，哈哈笑了出来，对面的小鸟也在嘻嘻的笑着。   
+    </textarea><br>
+    <input type="button" id="btn" value="过滤"><br>
+    <textarea id="txt2" cols="30" rows="8"></textarea>
+</body>
+</html>

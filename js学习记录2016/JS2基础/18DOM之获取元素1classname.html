@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>getbyclass</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<script type="text/javascript">
+    window.onload=function()
+    {
+        var oUl=document.getElementById('ul1');
+        var oLi=oUl.getElementsByTagName('li');
+        
+        for(i=0;i<oLi.length;i++)
+        {
+            if(oLi[i].className=="box")
+            {
+                oLi[i].style.background='red';
+            }
+            }
+    }
+</script>
+<body>
+<ul id="ul1">
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+</ul>
+    
+</body>
+</html>

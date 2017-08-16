@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>18DOM</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+  li
+  {
+    margin-top: 20px;
+  }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oUl=document.getElementById('ul1');
+        //alert(oUl.childNodes.length);//显示子节点的个数
+        for(var i=0;i<oUl.childNodes.length;i++)
+        //alert(oUl.parentNode);显示父节点
+
+        /*alert(oUl.childNodes[i].nodeType);
+          显示子节点的类型
+          nodeType=3时，是文本节点，指未定义的地方
+          nodeType=1时，是元素节点，指五个li*/
+          if(oUl.childNodes[i].nodeType==1)
+          {
+            oUl.childNodes[i].style.background='red';
+          }
+
+    }
+</script>
+<body>
+<div>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+    
+</body>
+</html>

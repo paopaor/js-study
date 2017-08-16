@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>li移动</title>
+</head>
+<style>
+    #ul1
+    {
+        background: green;
+    }
+    
+</style>
+<script>
+    window.onload=function()
+    {
+        var oUl1=document.getElementById('ul1');
+        var oBtn=document.getElementById('btn1');
+
+        oBtn.onclick=function()
+        {
+            var aLi=document.getElementsByTagName('li');
+
+           // aLi.sort();aLi只是元素集合 并不是真正意义上的Array数组，所以不能调用数组专属的sort()方法。
+            
+            var arr=[];//创建一个数组，用来存放aLi的元素
+            for(var i=0;i<aLi.length;i++)
+            {
+                arr[i]=aLi[i];            
+            }
+
+            arr.sort(function(li1,li2)//排序函数
+            {
+                 var n1=parseInt(li1.innerHTML);
+                 var n2=parseInt(li2.innerHTML);
+
+                 return n1-n2;
+            });
+
+            //alert(arr[3].innerHTML);
+            
+            for(var i=0;i<arr.length;i++)
+            {
+                alert('把'+arr[i].innerHTML+'插入到最后');
+                oUl1.appendChild(arr[i]);
+            }
+        }
+           
+    }
+</script>
+<body>
+    <input id="btn1" type="button" value="move">
+    <ul id="ul1">
+        <li>1</li>
+        <li>23</li>
+        <li>33</li>
+        <li>4</li>
+        <li>27</li>
+        <li>30</li>
+        <li>42</li>
+    </ul>
+    
+    
+</html>

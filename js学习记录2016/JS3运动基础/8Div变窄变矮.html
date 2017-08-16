@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Div变窄变矮</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    #div1
+    {
+        width:200px;
+        height:200px;
+        background: red;
+        
+    }
+    #div2
+    {
+        width:200px;
+        height:200px;
+        background: yellow;
+        
+    }
+</style>
+<script>
+window.onload=function()
+{
+    var oDiv1=document.getElementById('div1');
+    var oDiv2=document.getElementById('div2');
+    oDiv1.onmouseover=function()
+    {
+        startMove1();
+    } 
+     oDiv2.onmouseover=function()
+    {
+        startMove2();
+    }
+}
+    
+    function startMove(obj,iTarget)
+    {
+        setInterval(function()
+        {
+        var oDiv1=document.getElementById('div1');
+
+        oDiv1.style.width=oDiv1.offsetWidth-1+'px';
+        },30);
+    }
+    function startMove2()
+    {
+        setInterval(function()
+        {
+        var oDiv2=document.getElementById('div2');
+
+        oDiv2.style.height=oDiv2.offsetHeight-1+'px';
+        },30);
+    }
+    
+</script>
+<body>
+<div id="div1">变宽</div>
+<div id="div2">变高</div>
+    
+</body>
+</html>

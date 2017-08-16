@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>发布微博</title>
+<script src="moveperfect.js"></script>
+</head>
+<style>
+    *
+    {
+        padding:0px;
+        margin:0px;
+    }
+    #ul1
+    {
+        width:400px;
+        height:400px;
+        background: #924;
+        border:2px solid black;
+        margin:20px auto;
+        overflow: hidden;
+    }
+    #ul1 li
+    {
+        border-bottom:1px dashed black;
+        list-style: none;
+        padding:5px;
+        overflow: hidden;
+        filter:alpha(opacity:0);
+        opacity:0;
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oBtn=document.getElementById('btn1');
+        var oTxt=document.getElementById('txt1');
+        var oUl=document.getElementById('ul1');
+
+        oBtn.onclick=function()
+        {
+            //alert('as');
+            var oLi=document.createElement('li');
+
+            oLi.innerHTML=oTxt.value;
+            oTxt.value='';
+
+            if(oUl.children.length>0)
+            {
+                oUl.insertBefore(oLi,oUl.children[0]);
+            }
+            else
+            {
+                oUl.appendChild(oLi);
+            }
+
+            //运动
+            var iHeight=oLi.offsetHeight;
+            //alert(iHeight);
+            oLi.style.height='0';
+            startMove(oLi,{height:iHeight},function()
+                {
+                    startMove(oLi,{opacity:100});
+                });
+            
+        }
+    }
+</script>
+<body>
+    <textarea  id="txt1" cols="30" rows="5"></textarea>
+    <input id="btn1" type="button" value="发布">
+    <ul id="ul1">
+    </ul>
+</body>
+</html>

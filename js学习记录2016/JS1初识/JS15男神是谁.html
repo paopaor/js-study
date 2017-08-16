@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JS15</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    #div1
+    {
+        height:100px;
+        width:100px;
+        border:2px solid plum;
+        display:none;
+
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oTxt=document.getElementById('txt1');
+        var oBtn=document.getElementById('btn1');
+        var oDiv=document.getElementById('div1');
+        oBtn.onclick=function()
+        {
+          // oDiv.innerHTML=oTxt.value;把文本框里的值赋到div里边的HTML，这个值可以是html文件,如在文本框里输入<h2>一路风景，瑜你同行</h2>，点击按钮，div框里会出现<h2>标题形式的“一路风景，瑜你同行”文字
+           alert(oDiv.innerHTML);
+        }
+
+    }
+</script>
+
+<body>
+<input  id="txt1" type="text">
+<input  id="btn1" type="button" value="男神是谁">
+<div id="div1"> 黄景瑜 一路风景 瑜你同行</div> 
+</body>
+</html>

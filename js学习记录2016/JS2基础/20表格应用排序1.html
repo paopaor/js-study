@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>多关键字查找split</title>
+<script>
+
+    window.onload=function()
+    {
+        var oTab=document.getElementById('tab1');
+        var oBtn=document.getElementById('btn1');
+
+        oBtn.onclick=function()
+        {
+            var arr=[];
+
+            for(var i=0;i<oTab.tBodies[0].rows.length; i++)
+            {
+                arr[i]=oTab.tBodies[0].rows[i];
+            }
+
+            arr.sort(function(tr1,tr2)
+            {
+                var n1=parseInt(tr1.cells[0].innerHTML);
+                var n2=parseInt(tr2.cells[0].innerHTML);
+
+                return n1-n2;
+
+            });
+
+            for(var i=0;i<arr.length;i++)
+            {
+                oTab.tBodies[0].appendChild(arr[i]);
+            }
+        }
+
+    };
+</script>
+<body>
+    <input type="button" value="rank" id="btn1">
+    <table id="tab1" border="2" width="600" >
+        <thead>
+            <td>ID</td>
+            <td>name</td>
+            <td>age</td>
+            <td>look</td>
+            <td>do</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>paopao</td>
+                <td>21</td>
+                <td>charming</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ronny</td>
+                <td>22</td>
+                <td>pretty</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Johnny</td>
+                <td>24</td>
+                <td>dashing</td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>20</td>
+                <td>paopao</td>
+                <td>21</td>
+                <td>charming</td>
+                <td></td>
+            </tr>
+             <tr>
+                <td>9</td>
+                <td>paopao</td>
+                <td>21</td>
+                <td>charming</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Ronny</td>
+                <td>22</td>
+                <td>pretty</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Ronny</td>
+                <td>22</td>
+                <td>pretty</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Timmy</td>
+                <td>22</td>
+                <td>cute</td>
+                <td></td>
+            </tr>
+        </tbody>
+  </table>
+</body>
+</html>

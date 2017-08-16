@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<script src="moveperfect.js"></script>
+</head>
+<style>
+   *
+   {
+    padding:0px;
+    margin:0px;
+   }
+   li
+   {
+    list-style: none;
+   }
+   #playimages
+   {
+    width:500px;
+    height:666px;
+    background: pink;
+    overflow: hidden;
+    position: absolute;
+    top:0px;
+    left:430px;
+   }
+   .active
+   {
+    background: white;
+   }
+   ol
+   {
+    position: absolute;
+    top:630px;
+    left:300px;
+    text-align: center;
+    z-index: 1001;
+   }
+   ol li
+   {
+     width:25px;
+     height:25px;
+     background: #423;
+     float:left;
+     margin:3px;
+     
+   }
+   ul
+   {
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index: 1000;
+   }
+   ul li
+   {
+    float:left;
+   }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oDiv=document.getElementById('playimages');
+        var oBtn=oDiv.getElementsByTagName('ol')[0].getElementsByTagName('li');
+        var oUl=oDiv.getElementsByTagName('ul')[0];
+        var oImg=oUl.getElementsByTagName('li');
+
+
+        var now=0;
+        for(var i=0;i<oBtn.length;i++)
+            {
+                oBtn[i].index=i;
+                oBtn[i].onclick=function()
+                {
+                    now=this.index;
+                    tab();
+                }
+            }
+        function tab()
+        {
+           for (var i=0;i<oBtn.length;i++)
+               {
+                  oBtn[i].className='';
+               }
+               oBtn[now].className='active';//this即oBtn[now]
+
+               //oUl.style.left=-500*this.index+'px';
+               startMove(oUl,{top:-666*now}); 
+        }
+        function next()
+        {
+            now++;
+            if(now==oBtn.length)
+            {
+                now=0;
+            }
+            tab();
+        }
+        var timer=setInterval(next,2000);
+        oDiv.onmouseover=function()
+        {
+            clearInterval(timer);
+        }
+        oDiv.onmouseout=function()
+        {
+            timer=setInterval(next,2000);
+        }
+    }
+</script>
+<body>
+    <div id="playimages" class="all">
+        <ol>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ol>
+        <ul>
+            <li><img src="images/1.jpg" ></li>
+            <li><img src="images/2.jpg" ></li>
+            <li><img src="images/3.jpg" ></li>
+            <li><img src="images/4.jpg" ></li>
+            <li><img src="images/5.jpg" ></li>
+            <li><img src="images/6.jpg" ></li>
+        </ul>
+    </div>
+</body>
+</html>

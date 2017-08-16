@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JS14</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    .active{
+        background:red;
+    }
+    #div1 div{
+        width:300px;
+        height:300px;
+        background: plum;
+        border:2px solid  orange;
+        display: none;
+       
+    }
+</style>
+<script>
+  window.onload=function()
+  {
+    var oDiv=document.getElementById('div1');
+    var aBtn=document.getElementsByTagName('input');
+    var aDiv=document.getElementsByTagName('div');
+     for(var i=0;i<aBtn.length;i++)
+     {
+         aBtn[1].index=i;
+         aBtn[i].onclick=function()
+      {
+        for(var i=0;i<aBtn.length;i++)
+        {
+          aBtn[i].className='';
+          aDiv[i].style.display='none';
+        }
+          this.className='active';
+          aDiv[this.index].style.display='block';
+      }
+     }
+    }
+</script>
+<body>
+<div id="div1">
+   <input  class="active" type="button" value="琴棋书画"  >
+   <input type="button" value="琴棋书画" >
+   <input type="button" value="琴棋书画" >
+   <input type="button" value="琴棋书画" >
+   <div style="display:block;">
+    你背着我说起从前<br/>
+    一个人拖延着时间<br/>
+    我笑着听着你诉说<br/>
+    眼前却模糊了一片<br/>
+    你拉起我曾<br/>
+    犹豫不决的说<br/>
+   </div>
+   <div>
+     向前慢慢走<br/>
+     一起慢慢走<br/>
+     别总说我不懂<br/>
+     别总说我不同<br/>
+     风也吹过 我嘴角残留下温柔<br/>
+   </div>
+   <div>
+     别说你会继续陪我<br/>
+     我不说是我太过沉默<br/>
+     你握紧双手<br/>
+     听不见我说<br/>
+     别总说我不懂<br/>
+     别总说我不同<br/>
+   </div>
+   <div>
+     风也吹过我嘴角残留下温柔<br/>
+     别说你会继续陪我<br/>
+     我不说是我太过沉默<br/>
+     你握紧双手<br/>
+     听不见我说<br/>
+     别走
+   </div>
+</div>
+
+
+    
+</body>
+</html>

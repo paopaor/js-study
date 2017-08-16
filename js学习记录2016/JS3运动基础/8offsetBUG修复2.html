@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Bug修复2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    #div1
+    {
+        width:200px;
+        height:200px;
+        background: pink;
+        border:100px solid red;
+        /*加了boredr之后，div的offsetWidth变为202；*/
+    }
+</style>
+<script>
+    function getStyle(obj,name)
+    {
+        if(obj.currentStyle)
+        {
+             return obj.currentStyle[name]; 
+        }
+        else
+        {
+            return getComputedStyle(obj,false)[name];
+        }
+    }
+    setInterval(function()
+    {
+        var oDiv=document.getElementById('div1');
+
+        oDiv.style.width=parseInt(getStyle(oDiv,'width'))-1+'px';
+    
+    },30);
+</script>
+<body>
+    <div id="div1" ></div>
+
+</body>
+</html>

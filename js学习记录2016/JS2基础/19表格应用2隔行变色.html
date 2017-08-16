@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+</head>
+<style>
+    thead
+    {
+        background: '#ccc';
+        margin-bottom: 10px;
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oTab=document.getElementById('tab1');
+
+        
+        /*alert(oTab.tBodies[0].rows[1].cells[0].innerHTML); */
+        
+
+
+        for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+        {
+            if(i%2)
+            {
+                oTab.tBodies[0].rows[i].style.background='#a00';
+            }
+            else
+            {
+                oTab.tBodies[0].rows[i].style.background='#0a0';
+            }
+        }
+    };
+</script>
+<body>
+    <table id="tab1" border="2" width="500" >
+        <thead>
+            <td>name</td>
+            <td>age</td>
+            <td>look</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>paopao</td>
+                <td>21</td>
+                <td>charming</td>
+            </tr>
+            <tr>
+                <td>Ronny</td>
+                <td>22</td>
+                <td>pretty</td>
+            </tr>
+            <tr>
+                <td>Johnny</td>
+                <td>24</td>
+                <td>dashing</td>
+            </tr>
+            <tr>
+                <td>Timmy</td>
+                <td>22</td>
+                <td>cute</td>
+            </tr>
+        </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> getCookie</title>
+<script>
+    function setCookie(name,value,iDay)
+    {
+        var oDate=new Date();
+        oDate.setDate(oDate.getDate()+iDay);
+
+        document.cookie=name+'='+value+';expires='+oDate;
+    }
+
+    function getCookie(name)
+    {
+        var arr=document.cookie.split('; ');
+
+        for(var i=0;i<arr.length;i++)
+        {
+            var arr2=arr[i].split('=');
+
+            if(arr2[0]==name)
+            {
+                return arr2[1];
+            }
+        }
+        return '';
+    }
+
+    function removeCookie(name)
+    {
+         setCookie(name,1,-1);  
+         //过期时间设置为-1天  就会被删除   中间的1 是随便赋个什么值都可以
+    }
+
+    //alert(document.cookie);
+    //alert(getCookie('user'));
+    removeCookie(' ');
+    alert(document.cookie);
+    
+</script>
+</head>
+<body>
+    
+</body>
+</html>

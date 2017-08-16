@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Bug修复</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    #div1
+    {
+        /*width:200px;*/
+        height:200px;
+        background: pink;
+        border:100px solid red;
+        /*加了boredr之后，div的offsetWidth变为202；*/
+    }
+</style>
+<script>
+    setInterval(function()
+    {
+        var oDiv=document.getElementById('div1');
+
+        oDiv.style.width=parseInt(oDiv.style.width)-1+'px';
+        //oDiv.style.width  style只能取行间样式
+    },30);
+</script>
+<body>
+    <div id="div1" style="width:200px;"></div>
+
+</body>
+</html>

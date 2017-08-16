@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>右键菜单</title>
+</head>
+<style>
+    *
+    {
+        padding:0px;
+        margin:0px;
+    }
+    div
+    {
+        width:100px;
+        height:210px;
+        background: #aaa;
+        border: 1px solid #ddd;
+        position: absolute;
+        display:none;
+    }
+    li
+    {
+        list-style: none;
+        margin-bottom: 5px;
+        background: #aa0;
+        opacity: 0.6;
+    }
+</style>
+<script>
+  window.onload=function()
+  {
+    //点击右键
+    document.oncontextmenu=function(ev)
+    {
+       var oEvent=ev||event;
+       var oDiv=document.getElementById('div1');
+
+       oDiv.style.display='block';
+       oDiv.style.left=oEvent.clientX+'PX';
+       oDiv.style.top=oEvent.clientY+'PX';
+
+       return false;//阻止浏览器的默认行为
+
+       /*实现不了
+       var oLi=oDiv.getElementsByTagName('li');
+       for(var i=0;i<oLi.length;i++)
+       {
+        oLi[i].onmouseover=function()
+        {
+            oLi[i].style.background='red';
+        }
+       }*/
+       
+    }
+    document.onclick=function()
+    {
+        var oDiv=document.getElementById('div1');
+        oDiv.style.display='none';
+    }
+  }  
+</script>
+<body>
+   <div id="div1">
+       <li>paopao</li>
+       <li>papa</li>
+       <li>popo</li>
+       <li>pepe</li>
+       <li>pcpc</li>
+       <li>pdpd</li>
+       <li>pcpc</li>
+       <li>pdpd</li>
+   </div>
+</body>
+</html>

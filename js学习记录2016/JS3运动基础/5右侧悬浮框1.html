@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>右侧悬浮框</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    body
+    {
+        height:2000px;
+    }
+    #div1
+    {
+        width:60px;
+        height:150px;
+        background: red;
+        position: absolute;
+        right:0px;
+        bottom:0px;
+    }
+</style>
+<script>
+    window.onscroll=function()
+    {
+         var oDiv1=document.getElementById('div1');
+         var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+
+         //oDiv1.style.top=document.documentElement.clientHeight-oDiv1.offsetHeight+scrollTop+'px';
+         
+         startMove(document.documentElement.clientHeight-oDiv1.offsetHeight+scrollTop);
+    }
+
+    var timer=null;
+    function startMove(iTarget)
+    {
+        var oDiv1=document.getElementById('div1');
+
+        clearInterval(timer);
+        timer=setInterval(function()
+            {
+                var speed=(iTarget-oDiv1.offsetTop)/8;
+                speed=speed>0?Math.ceil(speed):Math.floor(speed);
+
+                if(oDiv1.offsetTop==iTarget)
+                {
+                     clearInterval(timer);
+                }
+                else
+                {
+                    oDiv1.style.top=oDiv1.offsetTop+speed+'px';
+                }
+
+            },30);
+    }
+</script>
+<body>
+<div id="div1"></div>
+    
+</body>
+</html>

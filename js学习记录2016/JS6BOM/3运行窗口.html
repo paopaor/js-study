@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>运行</title>
+<script>
+    window.onload=function()
+    {
+        var oTxt=document.getElementById('txt1');
+        var oBtn=document.getElementById('btn1');
+
+        oBtn.onclick=function()
+        {
+            var oNewWin=window.open('about:blank','_blank');  
+            //  _blank 会弹出一个新窗口 
+            //   _self 不打开新窗口 在自身刷新
+            
+            oNewWin.document.write(oTxt.value);  
+            //可以write很多东西 甚至可以写一段代码
+            //如将open.html的完整代码放到txt文本框中
+        }
+    }
+</script>
+</head>
+<body>
+    <textarea  id="txt1" cols="30" rows="10"></textarea> <br>
+    <input type="button" id="btn1" value="运行">
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>json与面向对象</title>
+<script>
+    var json={
+        name:'paopao',
+        sex:'female',
+        showName:function()
+        {
+            alert('my name is:'+this.name);
+        },
+        showSex:function()
+        {
+            alert('my sex is:'+this.sex);
+        }
+    };
+    json.showName();
+    json.showSex();
+
+    //优点  简单
+    //缺点  不适合多个对象  
+    //单体（别名）  适用对象 如AJAX这种单个的
+</script>
+</head>
+<body>
+    
+</body>
+</html>

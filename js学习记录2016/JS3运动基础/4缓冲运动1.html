@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>缓冲运动</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    #div1
+    {
+        width:200px;
+        height:200px;
+        background: #ffaa00;
+        position: absolute;
+        left:900px;
+    }
+    #div2
+    {
+        width:1px;
+        height:300px;
+        background: red;
+        position: absolute;
+        left:600px;
+        top:0px;
+    }
+</style>
+<script>
+     function startMove()
+     {
+        var oDiv =document.getElementById('div1');
+        setInterval(function()
+        {
+             var speed=(600-oDiv.offsetLeft)/10;
+             speed=speed>0?Math.ceil(speed):Math.floor(speed);
+
+             oDiv.style.left=oDiv.offsetLeft+speed+'px';
+
+            document.title=oDiv.offsetLeft+','+speed;//title处显示offsetLeft值
+        },30);
+     }
+</script>
+<body>
+<input type="button" value="startMove" onclick="startMove()"> 
+<div id="div1"></div> 
+<div id="div2"></div>
+</body>
+</html>

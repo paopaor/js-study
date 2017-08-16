@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JS</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script language="javascript" type="text/javascript">
+function check(){
+    var name=document.all('name').value;
+    var birthday=document.all('birthday').value;
+    var home=document.all('home').value;
+    var reg=/^[\d]{4}[\/-]{}{\d}{1,2}[\/-]{1}[\d]{1,2}$/;
+    if(name.length<3||name.length>20){
+        alert("姓名为3--20个字符!!");
+        return false;
+    }else if(!reg.test(birthday)){
+        alert("日期格式如2008-02-29!!");
+        return false;
+    }else if(home.length<3||home.length>15){
+        alert("密码为3--15个字符!!");
+        return false;
+    }
+    
+}
+</script>
+</head>
+<body>
+<form name="forml" method="post" action="">
+ <table width="300" border="0" cellpadding="4">
+  <tr>
+   <td colspan="2"><div align="center" class="style">户籍登记</div></td>
+  </tr>
+  <tr>
+   <td><div align="right">户主名:</div></td>
+   <td><div align="left"><input id="txt1" type="text" name="name" ></div></td>
+  </tr>
+  <tr>
+   <td><div align="right">生日:</div></td>
+   <td><div align="left"><input id="txt2" type="text" name="birthday"></div></td>
+  </tr>
+  <tr>
+   <td><div align="right">籍贯:</div></td>
+   <td><div align="left"><input id="txt3" type="text" name="home"></div></td>
+  </tr>
+  <tr>
+   <td colspan="2"><div align="center"><input type="submit" name="Submit" value="提交"  onClick="return check()">
+   <input type="reset" name="Submit2" value="重置">
+   </div></td>
+  </tr>
+ </table>
+</form> 
+</body>
+</html>

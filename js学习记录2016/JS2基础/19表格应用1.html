@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单</title>
+</head>
+<style>
+    #tab1
+    {
+         /*border-collapse: collapse;合并为一条线*/
+         /*border-spacing: 20px;控制每隔cell间的距离*/
+        
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+       var oTab=document.getElementById('tab1');
+
+    //alert(oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1].getElementsByTagName('td')[0].innerHTML); 
+    //alert(oTab.tBodies[0].getElementsByTagName('tr')[1].getElementsByTagName('td')[0].innerHTML);  tBodies效果相同
+    //alert(oTab.getElementsByTagName('tbody')[0].rows[1].getElementsByTagName('td')[0].innerHTML);  rows效果相同
+    //alert(oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1].cells[0].innerHTML);    cells效果相同
+    
+    alert(oTab.tBodies[0].rows[1].cells[0].innerHTML); 
+};
+       
+</script>
+<body>
+    <table id="tab1" border="2" width="500" >
+        <thead>
+            <td>name</td>
+            <td>age</td>
+            <td>look</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>paopao</td>
+                <td>21</td>
+                <td>charming</td>
+            </tr>
+            <tr>
+                <td>Ronny</td>
+                <td>22</td>
+                <td>pretty</td>
+            </tr>
+            <tr>
+                <td>Johnny</td>
+                <td>24</td>
+                <td>dashing</td>
+            </tr>
+            <tr>
+                <td>Timmy</td>
+                <td>22</td>
+                <td>cute</td>
+            </tr>
+        </tbody>
+</table>
+</body>
+</html>

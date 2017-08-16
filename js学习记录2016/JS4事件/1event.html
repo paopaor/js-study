@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>event</title>
+</head>
+<script>
+    window.onload=function()
+    {
+        document.onclick=function(ev)
+        {
+            //IE Chrom 无参数
+            //alert(event.clientX);
+            
+            //FF  IE9之后 Chrom
+            //alert(ev.clientX+','+ev.clientY);
+            
+            //通用写法
+            var oEvent=ev||event;
+            alert(oEvent.clientX+','+oEvent.clientY);
+        }
+
+    }
+</script>
+<body>
+    
+</body>
+</html>

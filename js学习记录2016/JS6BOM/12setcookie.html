@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>set cookie</title>
+<script>
+    function setCookie(name,value,iDay)
+    {
+        var oDate=new Date();
+        oDate.setDate(oDate.getDate()+iDay);
+
+        document.cookie=name+'='+value+';expires='+oDate;
+    }
+
+    setCookie('rr','pp',2);
+    
+</script>
+</head>
+<body>
+    
+</body>
+</html>

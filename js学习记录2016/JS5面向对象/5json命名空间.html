@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>命名空间</title>
+<script>
+    var paopao={};  //空的json paopao
+    paopao.say={};  //在空的json里边放 say  这也是一个json 以下同理 
+                    //为了解决使用同一个方法名不起冲突的问题
+    paopao.sing={};
+    paopao.laugh={};
+
+    paopao.say.getUser=function()
+    {
+        alert('say');
+    }
+    paopao.sing.getUser=function()
+    {
+        alert('sing');
+    }
+    paopao.laugh.getUser=function()
+    {
+        alert('laugh');
+    }
+
+    paopao.say.getUser();
+    paopao.sing.getUser();
+    paopao.laugh.getUser();
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>call</title>
+</head>
+<script>
+     function A()
+    {
+        this.abc=12;
+    }
+    A.prototype.show=function()
+    {
+        alert(this.abc);
+    }
+
+    //继承A
+    function B()
+    {
+        //this->new B()
+        A.call(this);  //通过call实现属性的继承
+    }
+
+    B.prototype=A.prototype; 
+
+    var obj=new B();
+    //alert(obj.abc);
+    obj.show();
+
+</script>
+<body>
+    
+</body>
+</html>
