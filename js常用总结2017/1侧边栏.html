@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>侧边栏</title>
+</head>
+<style>
+*
+{
+    padding:0px;
+    margin:0px;
+} 
+#div1
+{
+    width:200px;
+    height:300px;
+    background: #aaccdd;
+    position: absolute;
+    left:-200px;
+    top:20px;
+}
+span
+{
+    width:20px;
+    height:60px;
+    background: red;
+    position: absolute;
+    top:0px;
+    right:-20px;
+}
+</style>
+<script>
+window.onload=function()
+{
+    
+    var oDiv1=document.getElementById('div1');
+     oDiv1.onmouseover=function()
+    {
+        startMove(0);
+    }
+    oDiv1.onmouseout=function()
+    {
+        startMove(-200);
+    }
+}
+    /*var timer=null;
+    function startMove(speed,iTarget)
+    {
+        clearInterval(timer);
+        var oDiv1=document.getElementById('div1');
+        timer=setInterval(function()
+            {
+                if(oDiv1.offsetLeft==iTarget)
+                {
+                    clearInterval(timer);
+                }
+                else
+                {
+                    oDiv1.style.left=oDiv1.offsetLeft+speed+'px';
+                }
+                
+            },30);
+        
+    }*/
+    var timer=null;
+    function startMove(iTarget)
+    {
+        clearInterval(timer);
+        var oDiv1=document.getElementById('div1');
+        
+        timer=setInterval(function()
+        {
+            var speed=0;
+            if(oDiv1.offsetLeft<iTarget)
+            {
+                speed=10;
+            }
+            else
+            {
+                speed=-10;
+            }
+            if(oDiv1.offsetLeft==iTarget)
+            {
+                clearInterval(timer);
+            }
+            else
+            {
+                oDiv1.style.left=oDiv1.offsetLeft+speed+'px';
+            }
+            
+        },30);
+        
+    }
+   
+</script>
+<body>
+<div id="div1"><span>侧边栏</span></div>
+    
+</body>
+</html>

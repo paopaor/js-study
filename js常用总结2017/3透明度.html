@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>透明度</title>
+</head>
+<style>
+    #div1
+    {
+        width:200px;
+        height:200px;
+        background: red;
+        filter:alpha(opacity:50);
+        opacity:0.5;
+    }
+</style>
+<script>
+    window.onload=function()
+    {
+        var oDiv=document.getElementById("div1");
+        oDiv.onmouseover=function()
+        {
+            startMove(100);
+        }
+        oDiv.onmouseout=function()
+        {
+            startMove(50);
+        }
+    }
+    var timer=null;
+    var alpha=50;
+    function startMove(iTarget)
+    {
+        var oDiv=document.getElementById("div1");
+        clearInterval(timer);
+        var timer=setInterval(function()
+        {
+            var speed=0;
+            if(alpha<iTarget)
+            {
+                speed=10;
+            }
+            else if(alpha>iTarget)
+            {
+                speed=-10;
+            }
+            if(alpha==iTarget)
+            {
+                clearInterval(timer);
+            }
+            else
+            {
+                alpha+=speed;
+                oDiv.style.filter='alpha(opacity:'+alpha+')';
+                oDiv.style.opacity=alpha/100;
+            }
+        });
+    }
+</script>
+<body>
+<div id="div1"></div>  
+</body>
+</html>

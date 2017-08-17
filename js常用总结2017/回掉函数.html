@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回掉函数运动</title>
+</head>
+<style>
+*
+{
+    padding:0px;
+    margin:0px;
+}
+div
+{
+    width:50px;
+    height:50px;
+    background: red;
+    border-radius: 10px;
+    position: relative;
+    margin:30px auto;
+
+}
+i
+{
+    width:30px;
+    height:30px;
+    position: absolute;
+    left:10px;
+    top:10px;
+}
+p
+{
+    width:100px;
+    height:30px;
+    position: absolute;
+    top:50px;
+    left:-18px;
+    font-weight: bold;
+    font-size: 5px;
+    font-family: "微软雅黑";
+}
+</style>
+<script src="jquery-1.8.3.min.js"></script>
+<script>
+    $(function()
+    {
+        $('div').mouseenter(function()
+        {
+            $(this).find('i').animate({top:"-20px",opacity:"0.1"},300,function()
+            {
+                 $(this).css({top:"20px"});
+                 $(this).animate({top:"10px",opacity:"1"},200);
+            })
+        })
+    })
+</script>
+<body>
+ <div><i><img src="images/house.png" alt=""></i><p>paopao house</p></div>   
+</body>
+</html>
