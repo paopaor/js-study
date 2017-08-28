@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断文件类型是否为图片</title>
+</head>
+<style>
+	/*上传文件 20170730 paopao*/
+	.pao_upfile{position: relative;}
+	.pao_upfil_ .tex_show{vertical-align: -5px;background-color: #fff;width: 260px;overflow: hidden;text-overflow: ellipsis;}
+	.pao_upfil_ .tex_show:focus{outline: none;}
+	.pao_upfil_ .tex_fil_{position:absolute;filter:alpha(opacity=0);opacity: 0;display:none;}
+</style>
+<body>
+	<div class="pao_upfil_">
+	    <input class="tex_show form-control" type="text" id="txt" name="txt">
+	    <a class="btn" onClick="f.click()">上传文件</a>
+	    <input type="file" name="f" id="f" class="tex_fil_" onChange="fileUp()" >
+	</div>
+	<script src="jquery-1.8.3.min.js"></script>
+	<script>
+	$(function(){
+		function fileUp(){
+			txt.value=this.value;
+			getUrl();
+		}
+		
+		function getUrl(){
+			var filePath =$('.tex_show').val();
+			//var filePath='C:/fakepath/note.png';
+			//获取最后一个.的位置
+			var index= filePath.lastIndexOf(".");
+			//获取后缀
+			var ext = filePath.substr(index+1);
+			//判断是否是图片
+			console.log("该文件是否为图片：" + isAssetTypeAnImage(ext));
+		}
+
+		function isAssetTypeAnImage(ext) {
+		  return [
+		  'png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff'].
+		  indexOf(ext.toLowerCase()) !== -1;
+		}
+	})
+	</script>
+</body>
+</html>

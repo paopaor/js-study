@@ -1,0 +1,100 @@
+<!DOCTYPE html>  
+<html>  
+  <head>  
+    <title>登录</title>  
+    <meta charset="utf-8"/>  
+    <style type="text/css">  
+      form{  
+        width:700px;  
+        margin:150px auto;  
+        border:1px solid #CCC;  
+      }  
+      form h1{  
+        text-align:center;  
+        margin:0;  
+        padding:5px;  
+        border:1px solid #CCC;  
+      }  
+      form p{  
+        margin:0;  
+        padding:20px;  
+        border:1px solid #CCC;  
+      }  
+      form div{  
+        text-align:center;  
+        margin:0;  
+        padding:10px;  
+        border:1px solid #CCC;  
+      }  
+      .error_msg{  
+        border:1px solid red;  
+        color:red;  
+      }  
+    </style>  
+    <script type="text/javascript">  
+      //校验用户名  
+      function check_name(){  
+        var input = document.getElementById("name");  
+        var span = document.getElementById("name_msg");  
+        var name = input.value;  
+
+
+        //3-6位 数字字母下划线 
+        //var reg = /^\w{3,10}$/;
+
+        //数字 字母 特殊符号 必须含有上述三种
+        //var reg=/^(?i).+(?<=\d.*)(?<=[a-z].*)(?<=[^a-z\s\d].*)$/; 
+
+        //至少字母、数字、特殊字符 任意两种组合
+        var reg = /^(((?=.*[0-9])(?=.*[a-zA-Z])|(?=.*[0-9])(?=.*[^\s0-9a-zA-Z])|(?=.*[a-zA-Z])(?=.*[^\s0-9a-zA-Z]))[^\s]+)$/; 
+        if(!reg.test(name)){  
+            //如果不匹配增加错误样式  
+            //className属性等价于元素的class  
+            span.className = "error_msg";  
+            alert('wrong')
+            return false;  
+        }else{  
+            //如果匹配,移除错误样式  
+            span.className = "";  
+            return true;  
+        }  
+      }  
+      //校验密码  
+      function check_pwd(){  
+        var input = document.getElementById("pwd");  
+        var span = document.getElementById("pwd_msg");  
+        var pwd = input.value;  
+        var reg = /^\w{6,20}$/;  
+        if(!reg.test(pwd)){  
+            span.className = "error_msg";  
+            return false;  
+        }else{  
+            span.className = "";  
+            return true;  
+        }  
+      }  
+    </script>  
+  </head>  
+  <body>  
+  <!-- 表单用于输入登录信息,提交给服务器 -->  
+  <!-- onsubmit是表单提交事件,在点击登录时触发,若该方法返回true,  
+        则提交表单,返回false则不提交,起到拦截的作用  
+   -->  
+  <form action="http://tmooc.cn" onsubmit="return (check_name()+check_pwd())==2">  
+    <h1>登录</h1>  
+      <p>  
+        帐号：  
+        <input type="text" onblur="check_name()" id="name"/>  
+        <span id="name_msg">至少字母、数字、特殊字符 任意两种组合</span>  
+      </p>  
+      <p>  
+        密码：  
+        <input type="password" onblur="check_pwd()" id="pwd"/>  
+        <span id="pwd_msg">6-20个字母、数字、下划线</span>  
+      </p>  
+     <div>  
+       <input type="submit" value="登录" onclick="f1()"/>  
+     </div>  
+  </form>  
+  </body>  
+</html 
