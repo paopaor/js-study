@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.table{border-collapse: collapse;}
+	.table thead tr th,.table tbody tr td{text-align: center;border:1px solid green;}
+</style>
+<body>
+	    <table class="table" id="pao">
+	      <thead>
+	        <tr><th width="5%">序号</th>
+	        <th width="20%">name</th>
+	        <th width="25%">age</th>
+	        <th width="20%">description</th>
+	      </tr></thead>
+	      <tbody>
+	        <tr v-for="(item,index) in myData">
+	            <td>{{index+1}}</td>
+	            <td>{{item.name}}</td>
+	            <td>{{item.age}}</td>
+	            <td>{{item.description}}</td>
+	        </tr>
+	      </tbody>
+	    </table>    	
+	</div>
+	<script src="vue/vue.js"></script> 
+	<script src="vue/axios.js"></script>
+	<script>
+	    var paopao=new Vue({
+	        el:"#pao",
+	        data:{
+	            myData:[]
+	        },
+	        created() {
+	                axios.get('data-usual.json').then(function(res){
+	                    console.log(res);
+	                    console.log(res.data);
+	                    console.log(typeof(res.data));
+
+	                    //JSON.stringify()方法可以将任意的JavaScript值序列化为JSON字符串
+	                    var data_a=JSON.stringify(res.data); 
+	                    console.log(typeof(data_a));
+
+	                    var data_b=JSON.parse(data_a); //将json字符串转化为 对象
+	                    console.log(typeof(data_b));
+
+	                    paopao.myData=res.data;
+	                    
+	                })
+	        }
+	    });
+	</script>
+</body>
+</html>
