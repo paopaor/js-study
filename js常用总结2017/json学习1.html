@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json学习</title>
+</head>
+<body>
+	<script>
+	    //创建了一个对象数组
+		var employees = [
+			[
+				{ "firstName":"Bill" , "lastName":"Gates" },
+				{ "firstName":"George" , "lastName":"Bush" },
+				{ "firstName":"Thomas" , "lastName": "Carter" }
+			],
+			[
+				{ "firstName":"Bill" , "lastName":"Gates" },
+				{ "firstName":"George" , "lastName":"Bush" },
+				{ "firstName":"Thomas" , "lastName": "Carter" }
+			]
+		]
+		console.log(employees[0][0].firstName);
+		console.log(typeof(employees))
+		console.log(employees)
+	</script>
+</body>
+</html>
