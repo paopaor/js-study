@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>打字效果</title>
+</head>
+<body>
+	<div id="code">
+	跟我走吧，忐忑给你，情书给你，不眠的夜给你，四月的清晨给你，雪糕的第一口给你，海底捞最后一颗鱼丸给你，手给你，怀抱给你，车票给你，跋涉给你，等待给你，钥匙给你，家给你，一腔孤勇和余生六十年都给你...... <br>往后余生：风雪是你，平淡是你，清贫是你，荣华是你，心底温柔似你，目光所至也是你......</div></div>
+	<script>
+		Element.prototype.typewriter=function(a){
+			var d = this,
+				c = d.innerHTML,
+				b = 0;
+			d.innerHTML="";
+			var e = setInterval(function() {
+				var f = c.substr(b, 1);
+				if (f == "<") {
+					b = c.indexOf(">", b) + 1
+				} else {
+					b++
+				}
+				d.innerHTML=c.substring(0, b) + (b & 1 ? "_" : "");
+				if (b >= c.length) {
+					clearInterval(e)
+				}
+			}, 150)
+		return this
+		
+		}
+		document.getElementById("code").typewriter();
+	</script>
+</body>
+</html>
